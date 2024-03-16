@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cake</title>
+  <style>
+    body {
+      display: flex;
+      height:100vh;
+      align-items: center;
+      justify-content: center;
+      background-color: #f07167;
+      overflow: hidden;
+    }
+
+    #birthday-cake {
+      position: relative;
+      top:50px;
+      left:0;
+    }
+
+    #birthday-cake:before {
+      content:"";
+      position: absolute;
+      background-color: #ede0d4;
+      width: 400px;
+      height:140px;
+      border-radius:50%;
+      left:50%;
+      top:50%;
+      transform: translate(-50%,-10%);
+      box-shadow: inset -2px -5px #e6ccb2;
+    }
+
+    .cake {
+      position: absolute;
+      background-color: #ddb892;
+      width: 350px;
+      height:130px;
+	  top: 5px; 
+	  left: 2px;
+      transform: translate(-50%,-60%);
+    }
+
+    .cake:before, .cake:after {
+      content:"";
+      position: absolute;
+    }
+
+    .cake:before, .middle, .middle:before {
+      border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
+      width:350px;
+      height:50px;
+    }
+
+    .cake:before {
+      background-color: #ddb892;
+      top:130px;
+    }
+
+    .cake:after {
+      background-color: #b08968;
+      width:350px;
+      height:30px;
+      top:50px;
+    }
+
+    .middle {
+      position: absolute;
+      background-color: #b08968;
+      top:80px;
+      z-index:1;
+    }
+
+    .middle:before {
+      content:"";
+      position: absolute;
+      background-color: #ddb892;
+      top:-35px;
+    }
+
+    .top {
+      position: absolute;
+      background-color: #7f5539;
+      width:350px;
+      height: 90px;
+      border-radius:50%;
+      z-index:2;
+      top:-45px;
+      box-shadow: inset -5px -1px #fff, inset -70px 2px rgba(255,255,255,.1);
+    }
+
+    .chocs {
+      position: absolute;
+      width: 55px;
+      height:50px;
+      background-color: #7f5539;
+      top:0;
+      z-index:1;
+      border-radius: 50% 50% 50% 50% / 0% 0% 100% 100%;
+      box-shadow: 49px 20px #7f5539, 98px 25px #7f5539, 147px 30px #7f5539, 196px 25px #7f5539, 245px 20px #7f5539, 295px 0 #7f5539, 0px 4px #fff, 49px 24px #fff, 98px 29px #fff, 147px 34px #fff, 196px 29px #fff, 245px 24px #fff, 295px 4px #fff;
+    }
+
+    .chocs:before {
+      content:"";
+      position: absolute;
+      width:175px;
+      height:180px;
+      background-color: rgba(255,255,255,.1);
+      border-radius: 100% 0% 100% 0% / 0% 72% 28% 100%;
+      left:175px;
+      top:0;
+    }
+
+    .candles {
+      position: absolute;
+      width:30px;
+      height: 80px;
+      background-color: #0081a7;
+      top:-160px;
+      left:-20px;
+      box-shadow: 50px 20px #0081a7, -50px 20px #0081a7;
+    }
+
+    .candles:before {
+      content:"";
+      position: absolute;
+      width:30px;
+      height: 10px;
+      background-color: #0081a7;
+      border-radius:50%;
+      top:-5px;
+      box-shadow: 0 80px #0081a7, -50px 20px #0081a7, -50px 100px #0081a7, 50px 20px #0081a7, 50px 100px #0081a7, inset 2px -1px #fff;
+    }
+
+    .candles:after {
+      content:"";
+      position: absolute;
+      width:30px;
+      height: 10px;
+      border-radius:50%;
+      top:15px;
+      left:50px;
+      box-shadow: inset 2px -1px #fff;
+    }
+
+    .shadows {
+      position: absolute;
+      width:30px;
+      height: 10px;
+      border-radius:50%;
+      box-shadow: inset 2px -1px #fff;
+      left:-50px;
+      top:15px;
+    }
+
+    .shadows:before {
+      content:"";
+      position: absolute;
+      background-color: #333;
+      width:1.5px;
+      height:15px;
+      left:14.5px;
+      top:-10px;
+      box-shadow:50px -20px #333, 100px 0 #333;
+    }
+
+    .shadows:after {
+      content:"";
+      position: absolute;
+      width:15px;
+      height:90px;
+      left:15px;
+      background-color: rgba(255,255,255,.1);
+      box-shadow: 50px -20px rgba(255,255,255,.1), 100px 0 rgba(255,255,255,.1);
+      border-radius: 0% 100% 50% 50% / 100% 6% 10% 0%;
+    }	
+
+    .flame {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: rgba(252,191,73,.8);
+      border-radius: 80% 15% 55% 50% / 55% 15% 80% 50%;
+      top: -40px;
+      left: -15px;
+      animation: flicker 0.5s infinite alternate;
+    }
+.candles {
+  position: absolute;
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.flame {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(252, 191, 73, 0.8);
+  border-radius: 80% 15% 55% 50% / 55% 15% 80% 50%;
+  animation: flicker 0.5s infinite alternate;
+}
+
+#flame1 {
+  left: -51px;
+ top: -20px; 
+}	
+
+#flame2 {
+  left: 0;
+}
+
+#flame3 {
+  left: 51px;
+  top: -20px; 
+}
+ .text2 {
+  position: absolute;
+  color: white;
+  font-family: 'Brush Script MT', cursive;
+ 
+}
+.text1 {
+ position: absolute; 
+ color: white; 
+ font-family: 'Courier New', Courier, monospace; 
+ white-space: nowrap; 
+ }
+
+.text1 {
+  font-size: 45px;
+  width: 300px;
+  top:-370px;
+  left:-295px;
+}	
+.text2 {
+  font-size: 35px;
+  width: 300px;
+  top:130px;
+  left:-110px;
+}	
+
+
+    @keyframes flicker {
+      0%, 25%, 100% {transform: scaleY(1) rotate(-45deg);}
+      50%, 75% {transform: scaleY(1.1) rotate(-45deg);}
+    }
+  </style>
+
+</head>
+
+<body>
+ 
+  <div id="birthday-cake">
+
+    <div class="cake">
+      <div class="middle"></div>
+      <div class="chocs"></div>
+      <div class="top"></div>
+	  
+    </div>
+    <div class="candles">
+      <div class="flame" id="flame1"></div>
+      <div class="flame" id="flame2"></div>
+      <div class="flame" id="flame3"></div>
+      <div class="shadows"></div>
+	  
+    </div>
+    <p class="text2">*Blow your Candles</p>
+	
+	<h1 class="text1">Happy Birthday Marielle</h1>
+	
+</div>
+
+
+
+  <script>
+    window.onload = function() {
+      let flameHidden = [false, false, false]; // Flags to track if each flame is hidden
+
+      // Access the user's microphone
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(function(stream) {
+          const audioContext = new AudioContext();
+          const analyser = audioContext.createAnalyser();
+          const microphone = audioContext.createMediaStreamSource(stream);
+          microphone.connect(analyser);
+
+          // Process audio input data
+          analyser.fftSize = 2048;
+          const bufferLength = analyser.frequencyBinCount;
+          const dataArray = new Uint8Array(bufferLength);
+
+          function detectBlowing() {
+            analyser.getByteFrequencyData(dataArray);
+            // Calculate the average intensity of the blowing sound
+            const averages = Array.from(dataArray).reduce((acc, value, index) => {
+              const flameIndex = Math.floor(index / (bufferLength / 3)); // Divide the frequency data into 3 parts for 3 flames
+              acc[flameIndex] += value;
+              return acc;
+            }, [0, 0, 0]).map(sum => sum / (bufferLength / 3));
+
+            // Threshold to hide the candle flame
+            const threshold = 50;
+
+            // Hide each flame based on the detected blowing
+            for (let i = 0; i < averages.length; i++) {
+              const flameId = `flame${i + 1}`;
+              const flame = document.getElementById(flameId);
+
+              if (!flameHidden[i] && averages[i] > threshold) {
+                flame.style.display = 'none'; // Hide the flame
+                flameHidden[i] = true; // Set the flag to true to prevent further updates
+              }
+            }
+
+            requestAnimationFrame(detectBlowing);
+          }
+
+          detectBlowing();
+        })
+        .catch(function(err) {
+          console.error('Error accessing microphone: ', err);
+        });
+    };
+  </script>
+</body>
+</html>
